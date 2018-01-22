@@ -1,0 +1,22 @@
+{
+  "name": "capstone_demoapp",
+  "version": "1.0.0",
+  "description": "Capstone demo App",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GiyasG/capstone_demoapp.git"
+  },
+  "author": "GiyasG",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/GiyasG/capstone_demoapp/issues"
+  },
+  "homepage": "https://github.com/GiyasG/capstone_demoapp#readme"
+}

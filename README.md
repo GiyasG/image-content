@@ -1,1 +1,1 @@
-# image-content
+#Capstone Demo Application
