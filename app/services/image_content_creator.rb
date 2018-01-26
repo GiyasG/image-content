@@ -1,7 +1,7 @@
 class ImageContentCreator
   attr_accessor :image, :original, :contents
 
-  def initialize(image, image_content=nil) 
+  def initialize(image, image_content=nil)
     @image = image
     @original = image_content || @image.image_content
     @original.image_id = @image.id
@@ -28,11 +28,11 @@ class ImageContentCreator
     new_contents = StringIO.new
     mm_image.write new_contents
     ImageContent.new(:image_id=>@image.id,
-                     :content_type=>"image/jpg", 
+                     :content_type=>"image/jpg",
                      :content=>new_contents)
   end
 
-  def self.annotate(text,content) 
+  def self.annotate(text,content)
     image = MiniMagick::Image.read(content)
     image.combine_options do |c|
       c.pointsize 400
@@ -48,7 +48,7 @@ class ImageContentCreator
   def save!
     @contents.each do |content|
       next if content.persisted?
-      content.save!() 
+      content.save!()
     end
     return true
   end

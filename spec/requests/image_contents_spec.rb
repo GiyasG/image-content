@@ -164,9 +164,9 @@ RSpec.describe "ImageContents", type: :request do
       end while content.size < ImageContent::MAX_CONTENT_SIZE
       image_props[:image_content][:content]=Base64.encode64(content)
 
-      #pp "base64 size=#{content.size}"
+      pp "base64 size=#{content.size}"
       jpost images_url, image_props
-      #pp parsed_body
+      pp parsed_body
       expect(response).to have_http_status(:unprocessable_entity)
       payload=parsed_body
       expect(payload["errors"]).to include("content")
@@ -251,6 +251,7 @@ RSpec.describe "ImageContents", type: :request do
 
     it "issues ETag based on content" do
       get image_content_url(@image)
+      pp response.headers
       expect(response).to have_http_status(:ok)
       expect(response.header["ETag"]).to_not be_nil
       expect(response.header["ETag"]).to eq(%("#{Digest::MD5.hexdigest(ic.cache_key)}"))

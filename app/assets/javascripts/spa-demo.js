@@ -6,6 +6,11 @@
 //= require angular-resource
 //= require angular-cookie
 //= require ng-token-auth
+//= require ng-file-upload-shim
+//= require ng-file-upload
+//= require ui-cropper
+
+
 
 //= require spa-demo/app.module
 //= require spa-demo/app.router
@@ -26,7 +31,11 @@
 //= require spa-demo/authz/base_policy.service
 
 //= require spa-demo/layout/layout.module
+//= require spa-demo/layout/image_query_size.service
 //= require spa-demo/layout/navbar/navbar.component
+//= require spa-demo/layout/image_loader/data_utils.service
+//= require spa-demo/layout/image_loader/image_loader.component
+//= require spa-demo/layout/image_viewer/image_viewer.component
 
 //= require spa-demo/foos/foos.module
 //= require spa-demo/foos/foos.service

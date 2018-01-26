@@ -20,15 +20,16 @@ class ImagesController < ApplicationController
   end
 
   def content
-    result=ImageContent.image(@image).smallest.first #(params[:width],params[:height]).first
+    result=ImageContent.image(@image).smallest(params[:width],params[:height]).first
     if result
-      # expires_in 1.year, :public=>true
-      # if stale? result
+      # fresh_when result
+      expires_in 1.year, :public=>true
+      if stale? result
         options = { type: result.content_type,
                     disposition: "inline",
                     filename: "#{@image.basename}.#{result.suffix}" }
         send_data result.content.data, options
-      # end
+      end
     else
       render nothing: true, status: :not_found
     end
